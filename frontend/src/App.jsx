@@ -8,14 +8,14 @@ function App() {
   useEffect(() => {
     // Fetch notes when the component loads
     axios
-      .get("http://localhost:3000/api/notes")
+      .get("https://clips-1.onrender.com/api/notes")
       .then((response) => setNotes(response.data)) // <-- Corrected here
       .catch((error) => console.error(error));
   }, []);
 
   const saveNote = () => {
     axios
-      .post("http://localhost:3000/api/notes", { text: text })
+      .post("https://clips-1.onrender.com/api/notes", { text: text })
       .then((response) => setNotes([...notes, response.data]))
       .catch((error) => console.error(error));
     setText(""); // Reset after the note is saved
@@ -31,7 +31,7 @@ function App() {
 
       // Call saveNote immediately after setting text
       await axios
-        .post("http://localhost:3000/api/notes", { text: clipboardText })
+        .post("https://clips-1.onrender.com/api/notes", { text: clipboardText })
         .then((response) => setNotes([...notes, response.data]))
         .catch((error) => console.error("Error saving note:", error));
     } catch (error) {
