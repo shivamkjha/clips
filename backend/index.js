@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
+const mongoURI = process.env.MONGODB_URI;
+
 
 const app = express();
 
@@ -8,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect(
-  "mongodb+srv://shivamkjha:YUDs5lrcyV4iLFjk@cluster0.z5hsflh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    mongoURI
 );
 
 const noteSchema = new mongoose.Schema({
