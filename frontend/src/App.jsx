@@ -98,7 +98,7 @@ function App() {
 
       {/* Stored Clips  */}
       <div className="w-full md:w-1/2">
-        <div className="text-center text-red-700 font-bold text-6xl font1 mt-16">
+        <div className="text-center text-red-700 font-bold text-5xl md:text-6xl font1 mt-16">
           Saved Notes
         </div>
 
