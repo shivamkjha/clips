@@ -109,16 +109,17 @@ function App() {
           >
             <div className="w-full flex justify-center p-2">
               <button
-                className="bg-blue-700 w-20 font1 p-1 mr-4 font-bold text-lg rounded-3xl shadow-2xl hover:text-black transition duration-300"
-                onClick={() => copyToClipboard(note.text)}
-              >
-                Copy
-              </button>
-              <button
-                className="bg-red-700 w-20 font1 p-1 font-bold text-lg rounded-3xl shadow-2xl hover:text-black transition duration-300"
+                className="bg-red-700 w-20 font1 p-1 mr-4 font-bold text-lg rounded-3xl shadow-2xl hover:text-black transition duration-300"
                 onClick={() => deleteNote(note._id)}
               >
                 Delete
+              </button>
+
+              <button
+                className="bg-blue-700 w-20 font1 p-1  font-bold text-lg rounded-3xl shadow-2xl hover:text-black transition duration-300"
+                onClick={() => copyToClipboard(note.text)}
+              >
+                Copy
               </button>
             </div>
             <div className="text-wrap break-words">
