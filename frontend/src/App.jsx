@@ -32,7 +32,7 @@ function App() {
 
   const deleteNote = (note_id) => {
       axios
-        .delete(`http://localhost:3000/api/deleteNote/${note_id}`) // String concatenation
+        .delete(`https://clips-1.onrender.com/api/deleteNote/${note_id}`) // String concatenation
         .then((response) => {
           console.log("Resource deleted successfully", response.data);
           setNotes(notes.filter((note) => note._id !== note_id));
@@ -66,14 +66,14 @@ function App() {
     <div className="flex flex-wrap bg-neutral-800">
       <div className="w-full h-screen md:w-1/2 flex items-center justify-center flex-col">
         <div className="w-full">
-          <div className="text-blue-700 font-bold font1 text-6xl mb-4 text-center">
+          <div className="text-blue-700 font-bold font1 text-6xl text-center">
             Create Note
           </div>
         </div>
         {/* Text area  */}
         <div className="w-full h-96 border-1 border-white-500 flex flex-col items-center justify-center">
           <textarea
-            className="w-3/4 h-1/2 rounded-2xl shadow-2xl bg-slate-300 p-4 border-blue-600 border-2 mt-10 m-2"
+            className="w-3/4 h-1/2 rounded-2xl shadow-2xl bg-slate-300 p-4 border-blue-600 border-2 m-2"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
