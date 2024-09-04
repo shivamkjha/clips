@@ -63,30 +63,31 @@ function App() {
   };
 
   return (
-    <div className="flex flex-wrap bg-neutral-800">
-      <div className="w-full h-screen md:w-1/2 flex items-center justify-center flex-col">
+    <div className="flex flex-wrap">
+      <div className="w-full h-96 md:h-screen mt-20 md:mt-8 md:w-1/2 flex items-center justify-center flex-col">
         <div className="w-full">
-          <div className="text-blue-700 font-bold font1 text-6xl text-center">
+          <div className="text-blue-700 font-bold font1 text-5xl md:text-6xl text-center mb-2">
             Create Note
           </div>
         </div>
         {/* Text area  */}
-        <div className="w-full h-96 border-1 border-white-500 flex flex-col items-center justify-center">
+        <div className="w-full border-1 border-white-500 flex flex-col items-center justify-center">
           <textarea
-            className="w-3/4 h-1/2 rounded-2xl shadow-2xl bg-slate-300 p-4 border-blue-600 border-2 m-2"
+            className=" w-80 md:w-4/5 h-36 md:h-52 rounded-2xl shadow-2xl bg-slate-300 p-4 border-blue-600 border-2 m-2"
             value={text}
+            placeholder="Write or Paste your note here!"
             onChange={(e) => setText(e.target.value)}
           />
           {/* Button   */}
           <div className="flex flex-col items-center">
             <button
-              className="bg-green-600 font1 w-36 border p-2 font-bold text-xl rounded-2xl shadow-2xl m-4"
+              className="bg-blue-700 text-gray-200 font1 w-36 p-2 font-bold text-xl rounded-3xl shadow-2xl m-4 hover:text-black transition duration-300"
               onClick={saveNote}
             >
               Save Note
             </button>
             <button
-              className="bg-red-700 font1 border w-60 p-2 font-bold text-xl rounded-2xl shadow-2xl"
+              className="bg-red-700 text-gray-300 font1 w-56 p-2 font-extrabold text-xl rounded-3xl shadow-2xl hover:text-black transition duration-300"
               onClick={pasteFromClipboardAndSave}
             >
               Paste from Clipboard
@@ -98,28 +99,30 @@ function App() {
       {/* Stored Clips  */}
       <div className="w-full md:w-1/2">
         <div className="text-center text-red-700 font-bold text-6xl font1 mt-16">
-          Notes
+          Saved Notes
         </div>
 
         {notes.map((note) => (
           <div
             key={note._id}
-            className="flex justify-between border m-2 p-1 rounded-lg text-white text-xl"
+            className="border border-blue-700 m-2 p-2 rounded-3xl text-white text-lg"
           >
-            <p>{note.text}</p>
-            <div>
+            <div className="w-full flex justify-center p-2">
               <button
-                className="bg-gray-500 font1 border w-16 p-1 mr-2 font-bold text-lg rounded-2xl shadow-2xl"
+                className="bg-blue-700 w-20 font1 p-1 mr-4 font-bold text-lg rounded-3xl shadow-2xl hover:text-black transition duration-300"
                 onClick={() => copyToClipboard(note.text)}
               >
                 Copy
               </button>
               <button
-                className="bg-red-700 font1 border w-20 p-1 font-bold text-lg rounded-2xl shadow-2xl"
+                className="bg-red-700 w-20 font1 p-1 font-bold text-lg rounded-3xl shadow-2xl hover:text-black transition duration-300"
                 onClick={() => deleteNote(note._id)}
               >
                 Delete
               </button>
+            </div>
+            <div className="text-wrap break-words">
+              <p>{note.text}</p>
             </div>
           </div>
         ))}

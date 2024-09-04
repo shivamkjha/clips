@@ -4,15 +4,12 @@ const cors = require("cors");
 require("dotenv").config();
 const mongoURI = process.env.MONGODB_URI;
 
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(
-    mongoURI
-);
+mongoose.connect(mongoURI);
 
 const noteSchema = new mongoose.Schema({
   text: { type: String, required: true },
@@ -58,7 +55,6 @@ app.delete("/api/deleteNote/:id", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
